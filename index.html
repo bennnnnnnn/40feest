@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach Bash 40!</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@400;700&family=Lobster&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to top right, #ffeec5, #ffcc70);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            color: #ff6347;
+            margin-top: 30px;
+        }
+
+        h2 {
+            font-family: 'Lobster', cursive;
+            font-weight: 400;
+            font-size: 2rem;
+            color: #008080;
+            margin-bottom: 30px;
+        }
+
+        .poster {
+            max-height: 80%;
+            width: 50em;
+            margin: 20px auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .rsvp-button {
+            display: inline-block;
+            background: #ff6347;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .rsvp-button:hover {
+            background: #ff4500;
+        }
+
+        #countdown {
+            font-size: 1.5rem;
+            color: #d2691e;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Beach Bash 40!</header>
+    <h2>Join Binnard, Mieke & Laura to celebrate our 40th birthday in style!</h2>
+    <h3>Saturday 28th of June, 20h @ Bar Batard, Vilvoorde</h3>
+    <div id="countdown"></div>
+
+    <img src="poster.jpg" alt="Beach Party Poster" class="poster">
+    <p>
+        <a href="https://forms.gle/your-placeholder-link" class="rsvp-button" target="_blank">RSVP Here</a>
+    </p>
+    <footer>
+        Dress code: Beach Chic • Bring your good vibes 🌴🎉
+    </footer>
+
+    <script>
+        // Countdown logic
+        const eventDate = new Date('2025-06-28T20:00:00'); // Set your event date & time here
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = eventDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerText = "Let's Party! 🎉";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('countdown').innerText =
+                `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds to go!`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+
+</html>
